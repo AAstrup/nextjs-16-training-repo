@@ -1,6 +1,8 @@
-export default function StaticSection() {
-  // This is computed during prerendering and ends up in the static shell.
-  // Every user initially gets this same HTML until the route is re-rendered.
+export default async function StaticSection() {
+  "use cache";
+
+  // This is computed while filling the static cache and ends up in the static
+  // shell. Every user initially gets this same HTML until the cache revalidates.
   const buildTime = new Date().toLocaleTimeString();
 
   return (
