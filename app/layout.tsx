@@ -1,5 +1,3 @@
-export const revalidate = 60;
-
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
@@ -36,24 +34,29 @@ export default function RootLayout({
             <h2 className="mb-4 text-lg font-semibold">Sidebar</h2>
             <nav className="space-y-6">
               <div>
-                <Link href="/">Home</Link>
+                <Link href="/" prefetch={false}>Home</Link>
               </div>
               <div>
-                <p className="mb-2 font-medium">Rendering</p>
+                <p className="mb-2 font-medium"><b>Rendering</b></p>
                 <ul className="space-y-2">
                   <li>
-                    <Link href="/rendering/dynamic">Dynamic Page</Link>
+                    <Link href="/rendering/dynamic" prefetch={false}>Dynamic Page</Link>
                   </li>
                   <li>
-                    <Link href="/rendering/static">Static Page</Link>
+                    <Link href="/rendering/static" prefetch={false}>Static Page</Link>
+                  </li>
+                  <li>
+                    <Link href="/rendering/partly-static" prefetch={false}>
+                      Partly Static Page
+                    </Link>
                   </li>
                 </ul>
               </div>
               <div>
-                <p className="mb-2 font-medium">Performance Test</p>
+                <p className="mb-2 font-medium"><b>Performance Test</b></p>
                 <ul>
                   <li>
-                    <Link href="/performancetest">Performancetest</Link>
+                    <Link href="/performancetest" prefetch={false}>Performancetest</Link>
                   </li>
                 </ul>
               </div>
