@@ -6,6 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "cd .next/standalone && node server.js",
+    "prepare-standalone-local": "node scripts/prepare-standalone-local.mjs",
+    "build-locally": "npm run build && npm run prepare-standalone-local",
+    "start-locally": "npm run prepare-standalone-local && node .next/standalone/server.js",
     "lint": "eslint"
   },
   "dependencies": {

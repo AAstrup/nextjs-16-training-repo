@@ -1,16 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import Link from "next/link";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,11 +13,39 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className="h-full antialiased">
+      <body className="min-h-full">
+        <div className="flex min-h-full">
+          <aside className="w-64 border-r border-black/10 p-6">
+            <h2 className="mb-4 text-lg font-semibold">Sidebar</h2>
+            <nav className="space-y-6">
+              <div>
+                <Link href="/">Home</Link>
+              </div>
+              <div>
+                <p className="mb-2 font-medium">Rendering</p>
+                <ul className="space-y-2">
+                  <li>
+                    <Link href="/rendering/dynamic">Dynamic Page</Link>
+                  </li>
+                  <li>
+                    <Link href="/rendering/static">Static Page</Link>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <p className="mb-2 font-medium">Performance Test</p>
+                <ul>
+                  <li>
+                    <Link href="/performancetest">Performancetest</Link>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </aside>
+          <main className="flex-1 p-6">{children}</main>
+        </div>
+      </body>
     </html>
   );
 }
