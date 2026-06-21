@@ -6,7 +6,7 @@ export default function PerformanceTestPage() {
       <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between bg-white px-16 py-32 dark:bg-black sm:items-start">
         <Image
           className="dark:invert"
-          src="/next.svg"
+          src="/assets/next.svg"
           alt="Next.js logo"
           width={100}
           height={20}
@@ -43,7 +43,7 @@ export default function PerformanceTestPage() {
           >
             <Image
               className="dark:invert"
-              src="/vercel.svg"
+              src="/assets/vercel.svg"
               alt="Vercel logomark"
               width={16}
               height={16}
