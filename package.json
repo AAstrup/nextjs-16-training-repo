@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev-static": "npm run build-locally && npm run start-locally",
     "build": "next build",
     "start": "cd .next/standalone && node server.js",
     "prepare-standalone-local": "node scripts/prepare-standalone-local.mjs",
