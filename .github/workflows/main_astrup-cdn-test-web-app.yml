@@ -23,11 +23,14 @@ jobs:
         with:
           node-version: '24.x'
 
-      - name: npm install, build, and test
-        run: |
-          npm ci
-          npm run build --if-present
-          npm run test --if-present
+    - name: npm install, build, and test
+      run: |
+        npm ci
+        npm run build --if-present
+        cp -r public .next/standalone/public
+        mkdir -p .next/standalone/.next
+        cp -r .next/static .next/standalone/.next/static
+        npm run test --if-present
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
